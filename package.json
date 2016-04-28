@@ -1,0 +1,24 @@
+{
+  "name": "now-serving-sign",
+  "version": "1.0.0",
+  "description": "simple code base for firefall's jenky now serving sign",
+  "main": "sign.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SWoskowiak/nowServingSign.git"
+  },
+  "author": "Stefan Woskowiak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SWoskowiak/nowServingSign/issues"
+  },
+  "homepage": "https://github.com/SWoskowiak/nowServingSign#readme",
+  "dependencies": {
+    "aws-iot-device-sdk": "^1.0.12",
+    "ip": "^1.1.2",
+    "johnny-five": "^0.9.44"
+  }
+}

@@ -3,6 +3,7 @@
 var five = require('johnny-five'),
 	board = new five.Board({ repl: false}),
 	awsIot = require('aws-iot-device-sdk'),
+  ip = require('ip'),
   iotSettings = {
     host: 'A8DMIB1LNCAVZ.iot.us-east-1.amazonaws.com',
     port: 8883,
@@ -112,7 +113,7 @@ board.on('ready', function () {
     console.log('Amazon IoT connect Success');
     // Subscripe to nowServingSign topic
     device.subscribe('nowServingSign:displayString');
-
+    device.subscribe('report');
     console.log('Awaiting messages...');
   });
 
@@ -123,5 +124,13 @@ board.on('ready', function () {
       parseMessage(payload.toString());
     }
     console.log('message:', topic, payload.toString());
+
+    // When asked to report, pass back our ip and client ID
+    if (topic === 'report') {
+      device.publish('status', JSON.stringify({
+        id: iotSettings.clientId,
+        ip: ip.address()
+      }));
+    }
   });
 });

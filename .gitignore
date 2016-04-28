@@ -1,0 +1,14 @@
+# Ignore all files starting with .
+.*
+# Don't commit node modules
+node_modules
+
+# Obviously don't upload our cert/key files
+150480e48f-certificate.pem.crt
+150480e48f-private.pem.key
+150480e48f-public.pem.key
+root-CA.crt
+
+# Un-ignore .gitignore and custom config files for services
+!/.gitignore
+!/.travis.yml
